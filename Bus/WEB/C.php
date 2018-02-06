@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+<title>Smart Bus Tracker</title>
+
+<link rel="stylesheet" href="CSS/A.css">
+
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom fonts for this template-->
+  <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <!-- Page level plugin CSS-->
+  <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+  <!-- Custom styles for this template-->
+  <link href="css/sb-admin.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="CSS/A.css">
+
+  
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<style>
+body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
+.w3-row-padding img {margin-bottom: 12px}
+/* Set the width of the sidebar to 120px */
+.w3-sidebar {width: 120px;background: #222;}
+/* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
+#main {margin-left: 120px}
+/* Remove margins from "page content" on small screens */
+@media only screen and (max-width: 600px) {#main {margin-left: 0}}
+input {
+    width: 100%;
+    height: 50px;
+
+}
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 20%;
+}
+
+td, th {
+    
+    text-align:center;
+    padding: 10px;
+    height: 10px;
+  
+}
+
+
+
+
+</style> 
+<body class="w3-text-grey w3-grey" >
+
+<!-- Icon Bar (Sidebar - hidden on small screens) -->
+<nav class="w3-sidebar w3-bar-block   w3-teal w3-small w3-hide-small w3-center">
+  <!-- Avatar image in top left corner -->
+  <img src="B.png" size="30px">
+  <a href="index.php#" class="w3-bar-item w3-button w3-padding-large w3-hover-dark-grey">
+    <i class="fa fa-home w3-xxlarge "></i>
+    <p>HOME</p>
+  </a>
+  <a href="index.php#about" class="w3-bar-item w3-button w3-padding-large w3-hover-dark-grey">
+    <i class="fa fa-user w3-xxlarge"></i>
+    <p>ABOUT</p>
+  </a>
+ 
+  <a href="index.php#contact" class="w3-bar-item w3-button w3-padding-large w3-hover-dark-grey">
+    <i class="fa fa-envelope w3-xxlarge"></i>
+    <p>CONTACT</p>
+  </a>
+  
+  <a href="#route" class="w3-bar-item w3-button w3-padding-large w3-hover-dark-grey">
+    <i class="fa fa-bus w3-xxlarge"></i>
+    <p>ROUTE DERAILS</p>
+  </a>
+ 
+</nav>
+
+<!-- Navbar on small screens (Hidden on medium and large screens) -->
+<div class="w3-top w3-hide-large w3-hide-medium" id="myNavbar">
+  <div class="w3-bar w3-white w3-opacity w3-hover-opacity-off w3-center w3-small">
+    <a href="#" class="w3-bar-item w3-button" style="width:25% !important">HOME</a>
+    <a href="#about" class="w3-bar-item w3-button" style="width:25% !important">ABOUT</a>
+    <a href="#contact" class="w3-bar-item w3-button" style="width:25% !important">CONTACT</a>
+    <a href="#route" class="w3-bar-item w3-button" style="width:25% !important">ROUTE DERAILS</a>
+  </div>
+</div>
+
+<!-- Page Content -->
+<div class="w3-container w3-padding-32" id="main">
+  <!-- Header/Home -->
+  <header class="w3-display-container w3-padding-16 w3-center w3-light-grey" style="height:650px"; id="home">
+    <h1 class="w3-jumbo"><span class="w3-hide-small">Smart Bus Tracker</span> </h1>
+
+    
+<!--     <div class="w3-display-container w3-green" style="height:500px;">
+ -->
+  <!--search bar--> 
+  <div class="div1" > 
+ <div class="w3-container">
+
+    <form>
+    <table class="w3-table" >
+    			<tr>
+            <div class="w3-container">
+    				<td colspan="2">
+      					<div class="col-xs-12">
+       					  <label for="ex1">From</label>
+        				  <input class="form-control" id="ex1" type="text" placeholder="Type Departure Place">
+      					</div>
+					</td>
+          <div class="w3-container">
+				</tr>
+
+				<tr>
+          <div class="w3-container">
+					<td colspan="2">
+      				    <div class="col-xs-12">
+        					<label for="ex1">To</label>
+        					<input class="form-control"  id="inputdefault" type="text" placeholder="Type Destination Place">
+     					 </div>
+  					</td>
+            </div>
+				</tr>
+					<tr>
+					<td>	
+						<div class="w3-container">							
+          <a href="B.html#available" class="w3-button w3-teal w3-padding-large w3-round-large" role="button"><i class="fa fa-bus" style="font-size:15px"></i> Search a Bus</a>
+						</div>				
+					</td>
+
+					<td>
+						<div class="w3-container">
+							  <div class="w3-dropdown-hover w3-round-large">
+							    <button onclick="myFunction()" class="w3-button w3-teal w3-round-large w3-padding-large">
+							    	<i class="fa fa-clone" style="font-size:15px"></i> More Details
+							    </button>
+							    <div id="Demo" class="w3-dropdown-content w3-bar-block w3-round-large">
+      					<a href="#" class="w3-bar-item w3-button w3-round-large">Add Date
+      					<input type="date" id="myDate" value="">
+<!-- <button onclick="myFunction()">Try it</button>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+    var x = document.getElementById("myDate").value;
+    document.getElementById("demo").innerHTML = x;
+}
+</script>
+ -->
+</a>
+      <a href="#" class="w3-bar-item w3-button w3-round-large">Add Time<input id="time" type="time"></a>
+      <a href="#" class="w3-bar-item w3-button w3-round-large">Depot</a>
+    </div>
+  </div>
+</div>
+
+<script>
+function myFunction() {
+    var x = document.getElementById("Demo");
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else { 
+        x.className = x.className.replace(" w3-show", "");
+    }
+}
+</script>
+							  </div>
+							</div>
+						</td>
+				</tr>
+			</div>
+</table> 
+</form>
+</div>
+</div>
+
+
+
+</header>
+</div>
+
+    <!-- Footer -->
+  <!-- About Section -->
+  <div class="w3-container  w3-padding-32" id="main">
+  <header class="w3-display-container w3-padding-32 w3-center w3-grey" style="height:800px;" id="about">
+
+    <br/><br> <div class="w3-container w3-text-teal "><h1 class="w3-jumbo"><span class="w3-hide-small"><b>Find available bus. Plan journey.  Reach Destination</b></span></h1></div>
+	
+      <br/><br>
+
+
+   <h4  class="w3-text-black"> <p>We provide full-fledged online bus searching platform. The passenger can easily get to know about available buses as 
+	their necessity within a minute.</p>
+	
+	<p>You can also enjoy the more facitilies with our mobile app.</p></h4>
+	
+    <h3 class="w3-padding-16 w3-text-black"><b>With the efficient bus tracking system from Smart Bus Tracker, plan your journey early, save your valuable time,
+	avoid waiting in long queue, find to your destination easily and enjoy your journey.</b></h3>
+
+
+	
+<div class="container">  
+<table>
+	<tr>
+		<td>
+			          <img src="A.jpg" class="img-circle" alt="Cinque Ter" width="304" height="236"> 
+
+		</td>
+
+		<td>
+		             <img src="B.jpg" class="img-circle" alt="Cinque Ter" width="304" height="236"> 
+
+		</td>
+
+		<td>
+	            <img src="C.jpg" class="img-circle" alt="Cinque Trre" width="304" height="236"> 
+		</td>
+	</tr>
+</table>
+</div>
+    </header>
+   </div>
+  <!-- Contact Section -->
+
+  <div class="w3-container w3-padding-4" id="main">
+  <header class="w3-display-container w3-padding-64 w3-center w3-grey" style="height:700px;" id="contact">
+
+ <br><br> <h2 class="w3-xxlarge">
+
+
+
+
+
+ <!--  <?php 
+require_once('inc/connect.php');
+echo "AAA";
+
+if(isset($_GET["BusId"])){
+  $BusId=mysqli_real_escape_string($connection,$_GET["BusId"]);
+  $query="SELECT * from bustable";
+
+  $result_set=mysqli_query($connection,$query);
+/*if($result_set){
+  if(mysqli_num_rows($result_set)==1){
+    $result_set=mysqli_fetch_assoc($result_set);
+    $BusId="'".$record1['BusId']."'";    
+  }
+  else{
+    header('location: B.php/erro');
+  }
+}else{
+
+}header('location: B.php');
+*/
+
+echo "AAA";
+  }
+
+
+
+   ?>
+
+ -->
+
+  Do you have any questions in using Smart Bus Tracker?<br>
+  Please do not hesitate to contact us. We are happy to help you.</h2>
+  
+  <h4><p></p>
+  <br></h4>
+  <br><br>
+  <div class="w3-padding-2">
+ <h6 class="w3-large"> <b>Say hello to Us</b><br>
+ (+94)71-5657333<br>
+   <br><b>
+   Email</b><br>
+ smarttrack@gmail.com<br>
+   <br><b>
+ Review</b> us at Facebook
+    <br><br><b>
+  Address</b><br>
+Smart bus Travker Pvt.Ltd,<br>No 33,<br>Pambahinna
+  </h6>
+</div>
+   
+  <div class="w3-content w3-padding-32 w3-text-grey w3-xlarge">
+    <i class="fa fa-facebook-official w3-hover-opacity" style="font-size:36px"></i>
+    <i class="fa fa-instagram w3-hover-opacity" style="font-size:36px"></i>
+    <i class="fa fa-snapchat w3-hover-opacity" style="font-size:36px"></i>
+    <i class="fa fa-pinterest-p w3-hover-opacity" style="font-size:36px"></i>
+    <i class="fa fa-twitter w3-hover-opacity" style="font-size:36px"></i>
+    <i class="fa fa-linkedin w3-hover-opacity" style="font-size:36px"></i>
+    <p class="w3-medium">Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank" class="w3-hover-text-green">Smart Bus Tracker</a></p>
+  <!-- End footer -->
+
+</div>
+</header>
+</div>
+
+ 
+
+<div class="w3-container" id="main">
+<header class="w3-display-container w3-padding-64 w3-center w3-grey" style="height:800px;" id="route">
+
+<h1 class="w3-jumbo"><span class="w3-hide-small">Smart Bus Tracker</span> </h1>
+   
+  <h2 class="w3-text-light-grey">Route Details</h2>
+    
+  <div class="container">
+
+<div class="table-responsive">          
+  <table class="table table-hover table table-bordered w3-teal w3-text-black">
+    <thead>
+      <tr>
+        <th>Destination</a></th>
+        <th>Arrival Time To</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td> Balangoda </td>
+        <td>07.30.00</td> 
+      </tr>
+       <tr>
+        <td> Pelmadulla </td>
+        <td>08.00.00</td> 
+      </tr>
+       <tr>
+        <td> Ratnapura </td>
+        <td>08.45.00</td> 
+      </tr>
+      
+    
+    
+    </tbody>
+  </table>
+</div>
+<div>
+
+ </header>
+  </div>
+
+
+  <!-- End Contact Section -->
+ 
+  <footer class="w3-content w3-padding-64 w3-text-grey w3-xlarge">
+    <i class="fa fa-facebook-official w3-hover-opacity"></i>
+    <i class="fa fa-instagram w3-hover-opacity"></i>
+    <i class="fa fa-snapchat w3-hover-opacity"></i>
+    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+    <i class="fa fa-twitter w3-hover-opacity"></i>
+    <i class="fa fa-linkedin w3-hover-opacity"></i>
+    <p class="w3-medium">Powered by <a # target="_blank" class="w3-hover-text-green">w3.css</a></p>
+  <!-- End footer -->
+  </footer>
+
+<!-- END PAGE CONTENT -->
+</div>
+
+</body>
+</html>

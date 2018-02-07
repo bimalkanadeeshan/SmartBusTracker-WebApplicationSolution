@@ -1,6 +1,4 @@
-<?php 
-require_once('inc/connect.php');
- ?>
+
  <!DOCTYPE html>
 <html>
 <title>Smart Bus Tracker</title>
@@ -350,4 +348,4 @@ Smart bus Travker Pvt.Ltd,<br>No 33,<br>Pambahinna
 </html>
 
 
- <?php mysqli_close($connection); ?>
+ 
